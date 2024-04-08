@@ -7,7 +7,7 @@ import { useGetProductByCategoryQuery } from '../../services/productsService';
 
 function Clothes() {
     const context = useContext(ShoppingCartContext)
-    const [filteredByTitleProducts, setFilteredByTitleProducts] = useState<Array<[]>>([])
+    const [filteredByTitleProducts, setFilteredByTitleProducts] = useState<any>([])
     const [products, setProducts] = useState<Array<[]>>([])
     const { data: menProducts } = useGetProductByCategoryQuery("men's clothing")
     const { data: womenProducts } = useGetProductByCategoryQuery("women's clothing")
@@ -21,7 +21,8 @@ function Clothes() {
 
 
     const handleChange = (title: string) => {
-        setFilteredByTitleProducts([products?.filter((product: any) => product?.title?.toLowerCase().includes(title?.toLowerCase()))])
+        const fileredProducts = products?.filter((product: any) => product?.title?.toLowerCase().includes(title?.toLowerCase()))
+        setFilteredByTitleProducts([fileredProducts])
     }
 
     const renderClothesCards = () => {

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useContext } from 'react'
 import Card from "../../components/Card"
 import Layout from "../../components/Layout"
 import ProductDetail from '../../components/ProductDetail';
@@ -7,11 +7,12 @@ import { useGetProductByCategoryQuery } from '../../services/productsService';
 
 function Electronics() {
     const context = useContext(ShoppingCartContext)
-    const [filteredByTitleProducts, setFilteredByTitleProducts] = useState<Array<[]>>([])
+    const [filteredByTitleProducts, setFilteredByTitleProducts] = useState<any>([])
     const { data: electronicProducts } = useGetProductByCategoryQuery("electronics")
 
     const handleChange = (title: string) => {
-        setFilteredByTitleProducts([electronicProducts?.filter((product: any) => product?.title?.toLowerCase().includes(title?.toLowerCase()))])
+        const fileredProducts = electronicProducts?.filter((product: any) => product?.title?.toLowerCase().includes(title?.toLowerCase()))
+        setFilteredByTitleProducts([fileredProducts])
     }
 
     const renderElectronicsCards = () => {

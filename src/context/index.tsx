@@ -17,12 +17,9 @@ export const ShoppingCartContextProvider = ({children}: any) => {
     
     // Shopping cart - Add products to cart
     const [productsInCart, setProductsInCart] = useState<Array<Object>>([])
-    console.log('productos agregados al carrito: ', productsInCart)
 
     // Shopping cart - Order
     const [order, setOrder] = useState<Array<Object>>([])
-    console.log('orderToAdd: ', order);
-    
 
     // Checkout Side Menu - Open/Close
     const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState<boolean>(false)

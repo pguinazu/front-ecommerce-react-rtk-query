@@ -1,20 +1,20 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useContext } from 'react'
 import Card from "../../components/Card"
 import Layout from "../../components/Layout"
 import ProductDetail from '../../components/ProductDetail';
 import { ShoppingCartContext } from '../../context';
 import { useGetProductsQuery } from '../../services/productsService';
-import { Product } from '../../utils/ProductInterface';
 
 function Home() {
   
   const context = useContext(ShoppingCartContext)
 
   const { data: products } = useGetProductsQuery()
-  const [filteredByTitleProducts, setFilteredByTitleProducts] = useState<Array<[]>>([])
+  const [filteredByTitleProducts, setFilteredByTitleProducts] = useState<any>([])
 
   const handleChange = (title: string) => {
-    setFilteredByTitleProducts([products.filter((product: Product) => product?.title.toLowerCase().includes(title))])
+    const fileredProducts = products?.filter((product: any) => product?.title?.toLowerCase().includes(title?.toLowerCase()))
+        setFilteredByTitleProducts([fileredProducts])
   }
 
   const renderHomeCards = () => {

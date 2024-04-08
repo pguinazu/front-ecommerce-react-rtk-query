@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from "react"
+import { useContext } from "react"
 import Layout from "../../components/Layout"
 import { ShoppingCartContext } from "../../context"
 import OrderCard from "../../components/OrderCard"
